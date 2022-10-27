@@ -251,7 +251,7 @@ public class Registro_Empleados extends javax.swing.JFrame {
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         // TODO add your handling code here:
-        espacios();
+        guardar();
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
@@ -297,20 +297,20 @@ public class Registro_Empleados extends javax.swing.JFrame {
     }
     // se creara una funcion  para verificar que los campos no esten vacios
 
-    public void espacios() {
-
-        if ((txtNombre.getText() != "") || (txtAp1.getText() != "") || (txtAp2.getText() != "")
-                || (cbID.getName() != "") || (txtID.getText() != "")
-                //|| (Integer.toString(cbPuesto.getSelectedIndex()) == null)
-                || (txtSalario.getText()) != "") {
-
-            JOptionPane.showMessageDialog(null, "Lo sentimos se produjo un ERROR favor revisar los campos ");
-
-        } else {
-            guardar();
-        }
-
-    }
+//    public void espacios() {
+//
+//        if ((txtNombre.getText() != "") || (txtAp1.getText() != "") || (txtAp2.getText() != "")
+//                || (cbID.getName() != "") || (txtID.getText() != "")
+//                //|| (Integer.toString(cbPuesto.getSelectedIndex()) == null)
+//                || (txtSalario.getText()) != "") {
+//
+//            JOptionPane.showMessageDialog(null, "Lo sentimos se produjo un ERROR favor revisar los campos ");
+//
+//        } else {
+//            guardar();
+//        }
+//
+//    }
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
