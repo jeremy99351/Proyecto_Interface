@@ -8,8 +8,6 @@ import javax.swing.JOptionPane;
 import clases.Empleados;
 import clases.Gobal;
 import java.io.IOException;
-import java.lang.System.Logger;
-import java.lang.System.Logger.Level;
 
 /**
  *
@@ -22,8 +20,8 @@ public class Registro_Empleados extends javax.swing.JFrame {
 
     public Registro_Empleados() {
         initComponents();
+
         lbFecha.setText(clases.getFecha());
-        //datos.Cargar();
         txtCodigo.setText(Integer.toString(clases.getCodigo()));
         this.setLocationRelativeTo(null);
     }
@@ -96,7 +94,7 @@ public class Registro_Empleados extends javax.swing.JFrame {
         cbID.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         cbID.setForeground(new java.awt.Color(255, 255, 255));
         cbID.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "IDENTIFICACION", "CEDULA", "DIMEX", "PASAPORTE" }));
-        cbID.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        cbID.setBorder(null);
 
         lbCodigo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         lbCodigo.setForeground(new java.awt.Color(255, 255, 255));
@@ -253,101 +251,65 @@ public class Registro_Empleados extends javax.swing.JFrame {
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         // TODO add your handling code here:
-        if (espacios() == true) {
-            int option = JOptionPane.showConfirmDialog(null, "Esta seguro de guardar los datos ingresados");
-
-            if (option == 0) {
-
-                empleado.setNombre(txtNombre.getText());
-                empleado.setApellido(txtAp1.getText());
-                empleado.setApellido2(txtAp2.getText());
-                empleado.setTipo_Id(cbID.getName());
-                empleado.setId(txtID.getText());
-                //empleado.setCodEmpleado(cbPuesto.getPrototypeDisplayValue());
-                empleado.setPuesto(Integer.toString(cbPuesto.getSelectedIndex()));
-                empleado.setSalario(Integer.parseInt(txtSalario.getText()));
-
-                try {
-                    // txtDb();
-                    clases.archivo(empleado);
-                } catch (IOException ex) {
-                    java.util.logging.Logger.getLogger(Empleados.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-                }
-
-                txtNombre.setText(" ");
-                txtAp1.setText("");
-                txtAp2.setText("");
-
-                txtID.setText("");
-                txtCodigo.setText(" ");
-                txtSalario.setText("");
-                cbPuesto.setToolTipText("");
-                //  archivo();
-            } else {
-                //espacios();
-            }
-        }
+        espacios();
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
-        // TODO add your handling code here:
-        Menu menu = new Menu();
-        this.setVisible(false);
-        menu.setVisible(true);
 
+        Menu opciones = new Menu();
+        opciones.setVisible(true);
     }//GEN-LAST:event_btnSalirActionPerformed
 
     public void guardar() {
-        if (espacios() == true) {
-            int option = JOptionPane.showConfirmDialog(null, "Esta seguro de guardar los datos ingresados");
+        //  if (espacios() == true) {
+        int option = JOptionPane.showConfirmDialog(null, "Esta seguro de guardar los datos ingresados");
 
-            if (option == 0) {
+        if (option == 0) {
 
-                empleado.setNombre(txtNombre.getText());
-                empleado.setApellido(txtAp1.getText());
-                empleado.setApellido2(txtAp2.getText());
-                empleado.setTipo_Id(cbID.getName());
-                empleado.setId(txtID.getText());
-                //empleado.setCodEmpleado(cbPuesto.getPrototypeDisplayValue());
-                empleado.setPuesto(Integer.toString(cbPuesto.getSelectedIndex()));
-                empleado.setSalario(Integer.parseInt(txtSalario.getText()));
+            empleado.setNombre(txtNombre.getText());
+            empleado.setApellido(txtAp1.getText());
+            empleado.setApellido2(txtAp2.getText());
+            empleado.setTipo_Id(cbID.getName());
+            empleado.setId(txtID.getText());
+            //empleado.setCodEmpleado(cbPuesto.getPrototypeDisplayValue());
+            empleado.setPuesto(Integer.toString(cbPuesto.getSelectedIndex()));
+            empleado.setSalario(Integer.parseInt(txtSalario.getText()));
 
-                try {
-                    // txtDb();
-                    clases.archivo(empleado);
-                } catch (IOException ex) {
-                    java.util.logging.Logger.getLogger(Empleados.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-                }
-
-                txtNombre.setText(" ");
-                txtAp1.setText("");
-                txtAp2.setText("");
-
-                txtID.setText("");
-                txtCodigo.setText(" ");
-                txtSalario.setText("");
-                cbPuesto.setToolTipText("");
-                //  archivo();
-            } else {
-                // espacios();
+            try {
+                // txtDb();
+                clases.archivo(empleado);
+            } catch (IOException ex) {
+                java.util.logging.Logger.getLogger(Empleados.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
             }
+
+            txtNombre.setText(" ");
+            txtAp1.setText("");
+            txtAp2.setText("");
+
+            txtID.setText("");
+            txtCodigo.setText(" ");
+            txtSalario.setText("");
+            cbPuesto.setToolTipText("");
+            //  archivo();
+
         }
 
     }
     // se creara una funcion  para verificar que los campos no esten vacios
 
-    public boolean espacios() {
-        boolean option = true;
+    public void espacios() {
 
-        if ((txtNombre.getText() == null) || (txtAp1.getText() == null) || (txtAp2.getText() == null)
-                || (cbID.getName() == null) || (txtID.getText() == null) || (Integer.toString(cbPuesto.getSelectedIndex()) == null)
-                || (txtSalario.getText()) == null) {
+        if ((txtNombre.getText() != "") || (txtAp1.getText() != "") || (txtAp2.getText() != "")
+                || (cbID.getName() != "") || (txtID.getText() != "")
+                //|| (Integer.toString(cbPuesto.getSelectedIndex()) == null)
+                || (txtSalario.getText()) != "") {
 
             JOptionPane.showMessageDialog(null, "Lo sentimos se produjo un ERROR favor revisar los campos ");
-            option = false;
 
+        } else {
+            guardar();
         }
-        return option;
+
     }
 
     public static void main(String args[]) {
