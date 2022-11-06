@@ -257,7 +257,7 @@ public class Listar_Empleados extends javax.swing.JFrame {
 
     private void btSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalirActionPerformed
         // TODO add your handling code here:
-        Menu menu = new Menu();
+        Menu_P2 menu = new Menu_P2();
         
        this.setVisible(false);
        menu.setVisible(true);

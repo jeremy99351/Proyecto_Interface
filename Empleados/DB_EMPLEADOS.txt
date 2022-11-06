@@ -1,3 +1,4 @@
 |1|maria|lopez|gonzalez|116330012|450000|null|18/10/2022
 |1|jeremy|alvarez|cruz|155826720430|380000|2|26/10/2022
 |1|jeremy|alvarez|cruz|3456789|3456789|2|26/10/2022
+|1|cristian|loria|askflka|123456789|400|1|03/11/2022

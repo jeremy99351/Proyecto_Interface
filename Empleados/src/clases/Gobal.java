@@ -23,6 +23,7 @@ import clases.Empleados;
  * @author jerem
  */
 public class Gobal {
+   int cont1 = 0;
 
     Vector vPrincipal = new Vector();
 
@@ -130,10 +131,22 @@ public class Gobal {
             String d;
             while ((d = br.readLine()) != null) {
                 cont++;
+                String []prueba = new String[d.length()];
                 StringTokenizer dato = new StringTokenizer(d, "|");
                 Vector x = new Vector();
+                
+                
+                 prueba[cont1]=d;
+                      System.out.println(prueba[cont1]);
+                     cont1=cont1+1;
                 while (dato.hasMoreTokens()) {
                     x.addElement(dato.nextToken());
+                    
+                    
+                     
+                    
+                    
+                     
                 }
                 mdlTabla.addRow(x);
 
