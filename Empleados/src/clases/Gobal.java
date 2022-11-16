@@ -23,14 +23,16 @@ import clases.Empleados;
  * @author jerem
  */
 public class Gobal {
-   int cont1 = 0;
+
+    int cont1 = 0001;
+   Empleados clases = new Empleados();
 
     Vector vPrincipal = new Vector();
 
     private String fecha = fechaA();
-    private int cont = 0000, codigo = cod(cont);
+    private String codigo;
 
-    public int getCodigo() {
+    public String getCodigo() {
         return codigo;
     }
 
@@ -48,17 +50,43 @@ public class Gobal {
         return FFecha.format(fecha);
     }
 
-    public static int cod(int cont) {
-
-        if (cont != cont) {
-            cont = cont + 1;
+    public String Validacion_Ceros() {
+        if (cod() <= 9) {
+            codigo = "000" + cod();
+            return codigo;
+        }
+        if (cod() > 9 && cod() < 99) {
+            codigo = "00" + cod();
+            return codigo;
+        }
+        if (cod() > 99 && cod() < 999) {
+            codigo = "0" + cod();
+            return codigo;
         } else {
-            cont = cont + 1;
+            codigo = "" + cod();
+            return codigo;
+        }
+    }
+
+    public int cod() {
+        int cont = 1;
+        try {
+            FileReader fr = new FileReader("DB_EMPLEADOS.txt");
+            BufferedReader br = new BufferedReader(fr);
+            String d;
+
+            while ((d = br.readLine()) != null) {
+                cont++;
+
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+
         }
         return cont;
     }
-
     // se hace un vector para para poder enbloquear los archivos de cada empleado
+
     public void guardar(Empleados empleado) {
         vPrincipal.addElement(empleado);
 
@@ -80,7 +108,7 @@ public class Gobal {
 //            linea.print(empleado.getNombre() + " " + empleado.getApellido() + " " + empleado.getApellido2() + ""
 //                    + empleado.getId() + " " + clase.getCodigo() + ""
 //                            + " " + empleado.getSalario() + " " + clase.getFecha());
-            linea.print("|" + getCodigo());
+            linea.print("|" + cod());
             linea.print("|" + empleados.getNombre());
             linea.print("|" + empleados.getApellido());
             linea.print("|" + empleados.getApellido2());
@@ -129,24 +157,19 @@ public class Gobal {
             FileReader fr = new FileReader("DB_EMPLEADOS.txt");
             BufferedReader br = new BufferedReader(fr);
             String d;
+
             while ((d = br.readLine()) != null) {
-                cont++;
-                String []prueba = new String[d.length()];
+                
+                String[] prueba = new String[d.length()];
                 StringTokenizer dato = new StringTokenizer(d, "|");
                 Vector x = new Vector();
-                
-                
-                 prueba[cont1]=d;
-                      System.out.println(prueba[cont1]);
-                     cont1=cont1+1;
+
+                prueba[cont1] = d;
+                System.out.println(prueba[cont1]);
+                cont1 = cont1 + 1;
                 while (dato.hasMoreTokens()) {
                     x.addElement(dato.nextToken());
-                    
-                    
-                     
-                    
-                    
-                     
+
                 }
                 mdlTabla.addRow(x);
 
@@ -156,4 +179,81 @@ public class Gobal {
         }
         return mdlTabla;
     }
+    
+    public  void datos(){
+        
+         try {
+            FileReader fr = new FileReader("DB_EMPLEADOS.txt");
+            //llamar al archivo en textro
+            BufferedReader br = new BufferedReader(fr);
+            // leer el archivo de texto
+            String d;
+            //contiene los datos 
+
+            while ((d = br.readLine()) != null) {
+                
+                String[] prueba = new String[d.length()];
+               
+               
+
+                prueba[cont1] = d;
+                System.out.println(prueba[cont1]);
+                cont1 = cont1 + 1;
+                
+               
+
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+        
+    }
+    public  boolean validar_Letras(String dato){
+        for(int i = 0;i<dato.length(); i++){
+            char caracter = dato.toUpperCase().charAt(i);
+            int ASCII = (int)caracter;
+            if(ASCII!=165&&(ASCII<65||ASCII>90)){
+                JOptionPane.showMessageDialog(null, "error solo se permiten letras");
+                return false;
+            }
+        }
+        return true;
+    }
+    
+    
+    public  boolean validar_Numeros(String dato) {
+        boolean ve = false;
+        if (dato.matches("[0-9]*") == true) {
+            System.out.println("correcto");
+            ve = true;
+
+        } else {
+            System.out.println("incorecto");
+            ve = false;
+        }
+
+        return ve;
+
+    }
+
+    public  boolean validar_Cedula(String dato) {
+        boolean ve = false;
+        if (validar_Numeros(dato) == true) {
+            if ((Integer.parseInt(dato) > 999999999) || (Integer.parseInt(dato) <= 0)) {
+                System.out.println("nnnnnnnnnnnnien");
+                ve = true;
+                return ve;
+            }
+
+            System.out.println("dato b");
+            ve = false;
+
+        } else {
+            System.out.println("si se pudo burro");
+        }
+        return ve;
+
+    }
+   
+    
 }

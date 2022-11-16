@@ -39,6 +39,7 @@ public class Menu_P2 extends javax.swing.JFrame {
         btnModificar = new javax.swing.JButton();
         btnSalario = new javax.swing.JButton();
         btnEliminar = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -81,7 +82,7 @@ public class Menu_P2 extends javax.swing.JFrame {
 
         btnRegistrar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnRegistrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/NuevoA1.png"))); // NOI18N
-        btnRegistrar.setText("REGISTRAR");
+        btnRegistrar.setText("REGISTRAR EMPLEADO");
         btnRegistrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRegistrarActionPerformed(evt);
@@ -90,7 +91,7 @@ public class Menu_P2 extends javax.swing.JFrame {
 
         btnListar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnListar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/MostrarA1.png"))); // NOI18N
-        btnListar.setText("MOSTRAR");
+        btnListar.setText("MOSTRAR EMPLEADO");
         btnListar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnListarActionPerformed(evt);
@@ -99,7 +100,7 @@ public class Menu_P2 extends javax.swing.JFrame {
 
         btnUsuario.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/EnlistarA1.png"))); // NOI18N
-        btnUsuario.setText("BUSCAR");
+        btnUsuario.setText("BUSCAR EMPLEADO     ");
         btnUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnUsuarioActionPerformed(evt);
@@ -108,7 +109,7 @@ public class Menu_P2 extends javax.swing.JFrame {
 
         btnModificar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnModificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/RegistrarA1.png"))); // NOI18N
-        btnModificar.setText("MODIFICAR");
+        btnModificar.setText("MODIFICAR EMPLEADO");
         btnModificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnModificarActionPerformed(evt);
@@ -117,7 +118,7 @@ public class Menu_P2 extends javax.swing.JFrame {
 
         btnSalario.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnSalario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/SalarioA1.png"))); // NOI18N
-        btnSalario.setText("SALARIO");
+        btnSalario.setText("MODIFICAR SALARIO");
         btnSalario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSalarioActionPerformed(evt);
@@ -126,7 +127,7 @@ public class Menu_P2 extends javax.swing.JFrame {
 
         btnEliminar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/EliminarA1.png"))); // NOI18N
-        btnEliminar.setText("ELIMINAR");
+        btnEliminar.setText("ELIMINAR EMPLEADO");
         btnEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEliminarActionPerformed(evt);
@@ -161,28 +162,41 @@ public class Menu_P2 extends javax.swing.JFrame {
                 .addComponent(btnSalario, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(11, Short.MAX_VALUE))
+                .addContainerGap(78, Short.MAX_VALUE))
         );
+
+        jButton1.setText("SALIR");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 682, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 682, Short.MAX_VALUE)
+                .addContainerGap())
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 533, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(532, 532, 532)
+                .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 66, Short.MAX_VALUE)
+                .addGap(14, 14, 14))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
         pack();
@@ -198,7 +212,7 @@ public class Menu_P2 extends javax.swing.JFrame {
 
     private void btnListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarActionPerformed
         // TODO add your handling code here:
-        Listar_Empleados listar = new Listar_Empleados();
+        ListarFinal listar = new ListarFinal();
 
         listar.setVisible(true);
         this.setVisible(false);
@@ -206,7 +220,7 @@ public class Menu_P2 extends javax.swing.JFrame {
 
     private void btnUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUsuarioActionPerformed
         // TODO add your handling code here:
-        Mostrar_Empleado usuario = new Mostrar_Empleado();
+        Mostra_Empleado usuario = new Mostra_Empleado();
         usuario.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnUsuarioActionPerformed
@@ -242,6 +256,11 @@ int x,y;
         eliminar.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnEliminarActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        System.exit(0);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -285,6 +304,7 @@ int x,y;
     private javax.swing.JButton btnRegistrar;
     private javax.swing.JButton btnSalario;
     private javax.swing.JButton btnUsuario;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;

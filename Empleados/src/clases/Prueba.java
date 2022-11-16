@@ -17,7 +17,7 @@ public class Prueba {
     public static void main(String[] args) {
         // TODO code application logic here
         Gobal p = new Gobal();
-        p.listarDaotos();
+      p.datos();
         
     }
     

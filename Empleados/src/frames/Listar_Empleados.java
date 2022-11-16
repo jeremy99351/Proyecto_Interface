@@ -8,12 +8,39 @@ package frames;
  *
  * @author jerem
  */
-public class Listar_Empleados extends javax.swing.JFrame {
 
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableRowSorter;
+
+import clases.Gobal;
+import clases.Empleados;
+import java.util.Vector;
+public class Listar_Empleados extends javax.swing.JFrame {
+ Gobal datos = new Gobal();
+    DefaultTableModel mdlTabla ;
+    Vector Columnas = new Vector();
     
     public Listar_Empleados() {
         initComponents();
         this.setLocationRelativeTo(null);
+        
+        Columnas.addElement("Codigo");
+        Columnas.addElement("Nombre");
+        Columnas.addElement("Apellido 1");
+        Columnas.addElement("Apellido 2");
+        Columnas.addElement("CEDULA");
+        Columnas.addElement("Salario");
+        Columnas.addElement("Puesto");
+        Columnas.addElement("FECHA");
+        
+        mdlTabla = new DefaultTableModel(Columnas,0);
+        tblListar.setModel(mdlTabla);
+        Cargar();
+    }
+     public  void Cargar() {
+
+       // jComboBox1.setModel(new DefaultComboBoxModel<>(columnas));
+        tblListar.setModel(datos.listarDaotos());
     }
 
     /**
@@ -34,7 +61,7 @@ public class Listar_Empleados extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tblListar = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
         cbFiltro = new javax.swing.JComboBox<>();
         txtBuscar = new javax.swing.JTextField();
@@ -106,36 +133,16 @@ public class Listar_Empleados extends javax.swing.JFrame {
             .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 46, Short.MAX_VALUE)
         );
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tblListar.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                { new Integer(39393), "Pepe ", "Ulate", "Madriz", "15092232",  new Double(1.0E7), "Precidencia"},
-                { new Integer(232323), "Abrham", "Ubeda", "Gamez", "15582709",  new Double(5000000.0), "Administracion"},
-                { new Integer(1254), "Luis", "Cortés ", "Paniagua", "164523412",  new Double(9000000.0), "Gerente"},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
+
             },
             new String [] {
-                "Codigo", "Nombre", "Apellido 1", "Apellido 2", "Cedula", "Salario", "Puesto"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Double.class, java.lang.String.class
-            };
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false
-            };
 
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
             }
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        jTable1.setToolTipText("");
-        jScrollPane1.setViewportView(jTable1);
+        ));
+        tblListar.setToolTipText("");
+        jScrollPane1.setViewportView(tblListar);
 
         jLabel2.setBackground(new java.awt.Color(108, 115, 133));
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -317,10 +324,10 @@ public class Listar_Empleados extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JRadioButton jbExcel;
     private javax.swing.JRadioButton jbPdf;
     private javax.swing.JRadioButton jbWord;
+    private javax.swing.JTable tblListar;
     private javax.swing.JTextField txtBuscar;
     // End of variables declaration//GEN-END:variables
 }

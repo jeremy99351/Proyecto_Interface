@@ -266,69 +266,15 @@
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
           <SubComponents>
-            <Component class="javax.swing.JTable" name="jTable1">
+            <Component class="javax.swing.JTable" name="tblListar">
               <Properties>
                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                  <Table columnCount="7" rowCount="6">
-                    <Column editable="false" title="Codigo" type="java.lang.Integer">
-                      <Data value="39393"/>
-                      <Data value="232323"/>
-                      <Data value="1254"/>
-                      <Data value="null"/>
-                      <Data value="null"/>
-                      <Data value="null"/>
-                    </Column>
-                    <Column editable="false" title="Nombre" type="java.lang.String">
-                      <Data value="Pepe "/>
-                      <Data value="Abrham"/>
-                      <Data value="Luis"/>
-                      <Data value="null"/>
-                      <Data value="null"/>
-                      <Data value="null"/>
-                    </Column>
-                    <Column editable="false" title="Apellido 1" type="java.lang.String">
-                      <Data value="Ulate"/>
-                      <Data value="Ubeda"/>
-                      <Data value="Cort&#xe9;s "/>
-                      <Data value="null"/>
-                      <Data value="null"/>
-                      <Data value="null"/>
-                    </Column>
-                    <Column editable="false" title="Apellido 2" type="java.lang.String">
-                      <Data value="Madriz"/>
-                      <Data value="Gamez"/>
-                      <Data value="Paniagua"/>
-                      <Data value="null"/>
-                      <Data value="null"/>
-                      <Data value="null"/>
-                    </Column>
-                    <Column editable="false" title="Cedula" type="java.lang.String">
-                      <Data value="15092232"/>
-                      <Data value="15582709"/>
-                      <Data value="164523412"/>
-                      <Data value="null"/>
-                      <Data value="null"/>
-                      <Data value="null"/>
-                    </Column>
-                    <Column editable="false" title="Salario" type="java.lang.Double">
-                      <Data value="1.0E7"/>
-                      <Data value="5000000.0"/>
-                      <Data value="9000000.0"/>
-                      <Data value="null"/>
-                      <Data value="null"/>
-                      <Data value="null"/>
-                    </Column>
-                    <Column editable="false" title="Puesto" type="java.lang.String">
-                      <Data value="Precidencia"/>
-                      <Data value="Administracion"/>
-                      <Data value="Gerente"/>
-                      <Data value="null"/>
-                      <Data value="null"/>
-                      <Data value="null"/>
-                    </Column>
-                  </Table>
+                  <Table columnCount="0" rowCount="0"/>
                 </Property>
                 <Property name="toolTipText" type="java.lang.String" value=""/>
+                <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
+                  <TableColumnModel selectionModel="0"/>
+                </Property>
                 <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
                   <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
                 </Property>

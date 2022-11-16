@@ -1,0 +1,459 @@
+package frames;
+
+
+import clases.Empleados;
+import java.awt.Image;
+import java.util.ArrayList;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.RowFilter;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableRowSorter;
+
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+/**
+ *
+ * @author marianela cano lopez
+ */
+public class Mostra_Empleado extends javax.swing.JFrame {
+
+    DefaultTableModel modelo = new DefaultTableModel();
+    private TableRowSorter trsfiltro;
+    TableRowSorter<DefaultTableModel> sorter;
+static String[] columna;
+static String[][] fila;
+    public void cargaDatos() {
+//        //Creamos de manera manual las columnas
+//        modelo.addColumn("CODIGO");
+//        modelo.addColumn("NOMBRE");
+//        modelo.addColumn("APELLIDO 1");
+//        modelo.addColumn("APELLIDO 2");
+//        modelo.addColumn("CÉDULA");
+//        modelo.addColumn("SALARIO");
+//        modelo.addColumn("PUESTO");
+//        TablaDatos.setModel(modelo);
+//        ArrayList<Object[]> info = new ArrayList<Object[]>();
+//        Object[] dato1 = new Object[]{"5651", "Marianela", "Cano","LOPEZ", "117210301", "360,000", "Ingeniera"};
+//        info.add(dato1);
+//
+//        for (Object[] informacion : info) {
+//            modelo.addRow(informacion);
+//        }
+//        TablaDatos.setModel(modelo);
+        String[] columna = {"ID","NOMBRE","APELLIDO 1","APELLIDO 2","IDENTIFICACION" ,"SALARIO", "PUESTO"};
+        String[][] fila = {{"78945", "NELSON", "LOPEZ", "PEREZ", "155828890", "250$", "CONTADOR"},
+        {"74125", "KEVIN", "MUÑOZ", "GARCIA", "450152145", "250$", "GERENTE"},
+        {"96321", "MARIS", "CASTRO", "LOPEZ", "357896321", "150$", "SECRETARIA"},
+        {"32141", "JUAN", "PEREZ", "TORREZ", "147896786", "150$", "SUPERVISOR"},
+        {"85296", "MARIO", "CARDENAS", "VALVERDE", "225896346", "100$", "TECNICO"}};
+
+        DefaultTableModel modelo = new DefaultTableModel(fila, columna) {
+
+//            public boolean isCellEditable(int fila, int columna) {
+//                if (columna == 0) {
+//                    return false;
+//                } else {
+//                    return true;
+//                }
+//
+//            }
+
+        };
+        Tabla.setModel(modelo);
+        Tabla.setAutoCreateRowSorter(true);
+        sorter = new TableRowSorter<>(modelo);
+        Tabla.setRowSorter(sorter);
+    }
+// String[][] filas = {{"10000", "JUAN", "PEREZ", "RODRIGUEZ", "111111111", "15000", "INGENIERO"},
+//        {"20000", "PEDRO", "CHACON", "VALVERDE", "222222222", "20000", "INGENIERO"}
+//        {"30000", "ROLANDO", "VARGAS", "SALAS", "333333333", "30000", "INGENIERO"}};
+//        modelo.addRow(filas);
+//        TablaDatos.setModel(modelo);
+
+//    ArrayList<Object[][]> info;
+//    
+//    public void datosArray() {
+////        info = new ArrayList<Object[][]>();
+////        Object[][] dato1 = new Object[][]{{"10000", "JUAN", "PEREZ", "RODRIGUEZ", "111111111", "15000", "INGENIERO"},
+////        {"20000", "PEDRO", "CHACON", "VALVERDE", "222222222", "20000", "INGENIERO"},
+////        {"30000", "ROLANDO", "VARGAS", "SALAS", "333333333", "30000", "INGENIERO"}};
+////
+////        info.add(dato1);
+////
+////        for (Object[] informacion : info) {
+////            modelo.addRow(informacion);
+////        }
+////        TablaDatos.setModel(modelo);
+//
+////        String[][] filas = {{"10000", "JUAN", "PEREZ", "RODRIGUEZ", "111111111", "15000", "INGENIERO"},
+////        {"20000", "PEDRO", "CHACON", "VALVERDE", "222222222", "20000", "INGENIERO"},
+////        {"30000", "ROLANDO", "VARGAS", "SALAS", "333333333", "30000", "INGENIERO"}};
+////        modelo.addRow(filas);
+////        TablaDatos.setModel(modelo);
+//    }
+//    
+    public Mostra_Empleado() {
+        initComponents();
+        this.setLocationRelativeTo(null);
+        //Iniciamos cargando los datos}
+        cargaDatos();
+//        this.setLocationRelativeTo(this);
+    }
+
+    
+
+    public boolean ValidaDatos() {
+//        String letra = "assdfgtjhliyo8";
+        boolean todoBien = true;
+
+        if (txtcodigo.getText().equals("")) {
+             JOptionPane.showMessageDialog(null,
+                    "Por Favor ingrese el dato para realizar la Busqueda");
+        }
+//valida que no hayan mas numeros de los que trae el codigo
+
+        if (txtcodigo.getText().length() > 5) {
+            JOptionPane.showMessageDialog(null,
+                    "No Ingrese mas de 5 numeros");
+        }
+
+        return todoBien;
+
+    }
+
+    /**
+     * This method is called from within the constructor to initialize the form.
+     * WARNING: Do NOT modify this code. The content of this method is always
+     * regenerated by the Form Editor.
+     */
+    @SuppressWarnings("unchecked")
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    private void initComponents() {
+
+        jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        txtcodigo = new javax.swing.JTextField();
+        btnSalir = new javax.swing.JButton();
+        btnBorrar = new javax.swing.JButton();
+        btnMostrar = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        Tabla = new javax.swing.JTable();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
+        setResizable(false);
+
+        jPanel1.setBackground(new java.awt.Color(108, 115, 133));
+        jPanel1.setPreferredSize(new java.awt.Dimension(700, 700));
+        jPanel1.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                jPanel1MouseDragged(evt);
+            }
+        });
+        jPanel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jPanel1MousePressed(evt);
+            }
+        });
+        jPanel1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jPanel1KeyPressed(evt);
+            }
+        });
+
+        jLabel1.setBackground(new java.awt.Color(0, 49, 105));
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("INFORMACION DE UN EMPLEADO");
+        jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jLabel1.setOpaque(true);
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("BUSCAR POR:");
+
+        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("CODIGO DE EMPLEADO:");
+
+        txtcodigo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtcodigoActionPerformed(evt);
+            }
+        });
+        txtcodigo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtcodigoKeyTyped(evt);
+            }
+        });
+
+        btnSalir.setBackground(new java.awt.Color(0, 49, 105));
+        btnSalir.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnSalir.setForeground(new java.awt.Color(255, 255, 255));
+        btnSalir.setText("SALIR");
+        btnSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalirActionPerformed(evt);
+            }
+        });
+
+        btnBorrar.setBackground(new java.awt.Color(0, 49, 105));
+        btnBorrar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnBorrar.setForeground(new java.awt.Color(255, 255, 255));
+        btnBorrar.setText("BORRAR");
+        btnBorrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBorrarActionPerformed(evt);
+            }
+        });
+
+        btnMostrar.setBackground(new java.awt.Color(0, 49, 105));
+        btnMostrar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnMostrar.setForeground(new java.awt.Color(255, 255, 255));
+        btnMostrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/buscar (11)_1.png"))); // NOI18N
+        btnMostrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMostrarActionPerformed(evt);
+            }
+        });
+
+        Tabla.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane2.setViewportView(Tabla);
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 609, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 1, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(25, 25, 25)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel3)
+                        .addGap(31, 31, 31)
+                        .addComponent(txtcodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnMostrar, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(21, 21, 21)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnBorrar))
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 571, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(57, 57, 57)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnMostrar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtcodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel3)))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(43, 43, 43)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnBorrar)
+                    .addComponent(btnSalir))
+                .addContainerGap(26, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 610, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 508, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+
+        pack();
+    }// </editor-fold>//GEN-END:initComponents
+    int xx, xy;
+    private void jPanel1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel1MousePressed
+        // TODO add your handling code here:
+        xx = evt.getX();
+        xy = evt.getY();
+    }//GEN-LAST:event_jPanel1MousePressed
+
+    private void jPanel1MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel1MouseDragged
+        // TODO add your handling code here:
+        int x = evt.getXOnScreen();
+        int y = evt.getYOnScreen();
+
+        this.setLocation(x - xx, y - xy);
+    }//GEN-LAST:event_jPanel1MouseDragged
+
+    private void txtcodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtcodigoActionPerformed
+        // TODO add your handling code here:
+
+
+    }//GEN-LAST:event_txtcodigoActionPerformed
+    private void filtrar() {
+        if (ValidaDatos() == true) {
+            try {
+                sorter.setRowFilter(RowFilter.regexFilter(txtcodigo.getText()));
+
+            } catch (Exception e) {
+
+            }
+
+        }
+
+    }
+
+    private void jPanel1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPanel1KeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jPanel1KeyPressed
+
+    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
+        // TODO add your handling code here:
+        Menu_P2 menu = new Menu_P2();
+        this.setVisible(false);
+        menu.setVisible(true);
+        
+    }//GEN-LAST:event_btnSalirActionPerformed
+
+    private void btnBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBorrarActionPerformed
+        // TODO add your handling code here:
+        txtcodigo.setText(" ");
+    }//GEN-LAST:event_btnBorrarActionPerformed
+
+    private void btnMostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrarActionPerformed
+        // TODO add your handling code here:
+//        ArrayList<persona> lista = new ArrayList();
+//        boolean encuentra = false;
+//
+//        for (int i = 0; i < lista.size(); i++) {
+//            if (lista.get(i).getCodigo() == (Integer.parseInt(txtcodigo.getText()))) {
+//
+//            }
+//
+//        }
+//        if (encuentra == false) {
+//            JOptionPane.showMessageDialog(null, "No se encontro ningun empleado con ese dato");
+//
+//        }
+   filtrar();
+//    cargaDatos();
+
+    }//GEN-LAST:event_btnMostrarActionPerformed
+
+    private void txtcodigoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtcodigoKeyTyped
+        //con este codigo se evita el ingreso de caracteres en el texfield
+        int key = evt.getKeyChar();
+
+    boolean numeros = key >= 48 && key <= 57;
+        
+    if (!numeros)
+    {
+        evt.consume();
+    }
+
+    if (txtcodigo.getText().trim().length() == 10) {
+        evt.consume();
+    }
+    }//GEN-LAST:event_txtcodigoKeyTyped
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(Mostra_Empleado.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(Mostra_Empleado.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(Mostra_Empleado.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(Mostra_Empleado.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new Mostra_Empleado();
+
+                new Mostra_Empleado().setVisible(true);
+            }
+        });
+
+    }
+
+    public void cerrar() {
+        Object[] opciones = {"Aceptar", "Cancelar"};
+        int eleccion = JOptionPane.showOptionDialog(rootPane, "¿Estas Seguro que desea Salir?", "Mensaje de confirmacion",
+                JOptionPane.YES_NO_OPTION,
+                JOptionPane.QUESTION_MESSAGE, null, opciones, "Aceptar");
+        if (eleccion == JOptionPane.YES_OPTION) {
+            System.exit(0);
+        } else {
+        }
+    }
+
+//         private void setImageLabel(JLabel labelName, String root){
+//            ImageIcon image= new ImageIcon(root);
+//              Icon icon= new ImageIcon();
+//              image.getImage().getScaledInstance(labelName.getWidth(), labelName.getHeight(), Image.SCALE_DEFAULT);
+//              labelName.setIcon(icon);
+//              this.repaint();
+//                }
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTable Tabla;
+    private javax.swing.JButton btnBorrar;
+    private javax.swing.JButton btnMostrar;
+    private javax.swing.JButton btnSalir;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTextField txtcodigo;
+    // End of variables declaration//GEN-END:variables
+
+}
