@@ -24,7 +24,7 @@ public class ListarFinal extends javax.swing.JFrame {
 
     Gobal datos = new Gobal();
     DefaultTableModel mdlTabla;
-    Vector Columnas = new Vector();
+    Vector Columnas =  new Vector();
 
     ExportaExcel eport = new ExportaExcel();
 
@@ -34,14 +34,7 @@ public class ListarFinal extends javax.swing.JFrame {
     public ListarFinal() {
         initComponents();
         this.setLocationRelativeTo(null);
-        Columnas.addElement("Codigo");
-        Columnas.addElement("Nombre");
-        Columnas.addElement("Apellido 1");
-        Columnas.addElement("Apellido 2");
-        Columnas.addElement("CEDULA");
-        Columnas.addElement("Salario");
-        Columnas.addElement("Puesto");
-        Columnas.addElement("FECHA");
+        
 
         mdlTabla = new DefaultTableModel(Columnas, 0);
         tblListar.setModel(mdlTabla);
@@ -172,6 +165,11 @@ public class ListarFinal extends javax.swing.JFrame {
             }
         ));
         tblListar.setToolTipText("");
+        tblListar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblListarMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tblListar);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -402,6 +400,12 @@ public class ListarFinal extends javax.swing.JFrame {
 
 
     }//GEN-LAST:event_cbFiltroItemStateChanged
+
+    private void tblListarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblListarMouseClicked
+        // TODO add your handling code here:
+        
+        
+    }//GEN-LAST:event_tblListarMouseClicked
 
     /**
      * @param args the command line arguments

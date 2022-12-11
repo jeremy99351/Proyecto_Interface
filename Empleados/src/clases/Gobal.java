@@ -147,7 +147,7 @@ public class Gobal {
         columnas.addElement("CEDULA");
         columnas.addElement("Salario");
         columnas.addElement("Puesto");
-        columnas.addElement("FECHA");
+        //columnas.addElement("FECHA");
 
         // SE CREA LAS COLUMNAS QUE TENDRAN LOS DATOS DE LA TABLA
         // GENERAMOS UN MODELO DE LA TABLA
@@ -160,13 +160,13 @@ public class Gobal {
 
             while ((d = br.readLine()) != null) {
                 
-                String[] prueba = new String[d.length()];
+                //String[] prueba = new String[d.length()];
                 StringTokenizer dato = new StringTokenizer(d, "|");
                 Vector x = new Vector();
 
-                prueba[cont1] = d;
-                System.out.println(prueba[cont1]);
-                cont1 = cont1 + 1;
+//                prueba[cont1] = d;
+//                System.out.println(prueba[cont1]);
+                //cont1 = cont1 + 1;
                 while (dato.hasMoreTokens()) {
                     x.addElement(dato.nextToken());
 
